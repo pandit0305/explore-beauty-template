@@ -7,7 +7,7 @@ import awsExports from '../aws-exports';
 import { Box } from "@mui/material";
 Amplify.configure(awsExports);
 import ToggleColorMode from "./context/ColorContext";
-import { Home } from "./pages/home";
+import { Home } from "./pages/home/home";
 import Footer from "./components/footer/Footer";
 import Navbar from "./components/navbar/Navbar";
 

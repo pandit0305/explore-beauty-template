@@ -1,6 +1,6 @@
 "use client"; // This is a client component
 import React, { useState, useEffect } from 'react';
-import { Link, animateScroll as scroll } from "react-scroll";
+import Link from "next/link";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -21,17 +21,17 @@ import { Auth } from 'aws-amplify';
 import { useRouter } from 'next/navigation';
 const pages = [
   {
-    id: 'services',
+    url: '/services',
     key:0,
     name: 'Services'
   },
   {
-    id: 'pricing',
+    url: '/pricing',
     key:1,
     name: 'Pricing'
   },
   {
-    id: '/blog',
+    url: '/blog',
     key:2,
     name: 'Blog'
   }
@@ -53,11 +53,8 @@ export default function Navbar() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = (page:{id:string, name:string, key:number}) => {
+  const handleCloseNavMenu = (page:{url:string, name:string, key:number}) => {
     setAnchorElNav(null);
-    if(page.id==="/blog"){
-      router.push('/blog')
-    }
   };
 
   const handleCloseUserMenu = (item: string) => {
@@ -121,13 +118,8 @@ export default function Navbar() {
               onClose={handleCloseNavMenu}
             >
               {pages.map((page) => (
-                <Link to={page.id}
+                <Link href={page.url}
                 key={page.key+Math.random()}
-                activeClass="active"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={100}
                 >
                   <MenuItem onClick={()=>handleCloseNavMenu(page)}>
                     <Typography textAlign="center">{page?.name}</Typography>
@@ -147,13 +139,8 @@ export default function Navbar() {
           </Typography>
           <Box sx={styles.mobileMenu}>
             {pages.map((page) => (
-              <Link to={page.id}
+              <Link href={page.url}
                 key={page.key+Math.random()}
-                activeClass="active"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={100}
               >
                 <Button
                   onClick={()=>handleCloseNavMenu(page)}
