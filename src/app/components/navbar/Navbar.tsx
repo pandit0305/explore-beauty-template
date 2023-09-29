@@ -16,7 +16,7 @@ import { useTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { styles } from '../../styles/explore.styles';
-import { ColorModeContext } from '@/app/page';
+import { ColorModeContext } from '../../context/ColorContext';
 import { Auth } from 'aws-amplify';
 import { useNavigate } from 'react-router-dom';
 
