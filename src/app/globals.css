@@ -97,11 +97,9 @@ body {
 
 body {
   -ms-overflow-style:none;
-}
-
-body {
   color: rgb(var(--foreground-rgb));
 }
+
 
 a {
   color: inherit;

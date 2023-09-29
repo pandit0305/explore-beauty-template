@@ -74,7 +74,7 @@ function Footer() {
                             label="Name"
                             {...register("name", { required: "Name is required.", maxLength: 20 })} placeholder='Your name'
                         />
-                        <ErrorMessage errors={errors} name="name" render={({ message }) => <p style={styles.errorText}>{message}</p>} />
+                        <ErrorMessage errors={errors} name="name" render={({ message }) => <p style={{position: 'absolute', fontSize: '10px', marginLeft: '10px', marginTop: '5px', color: 'red'}}>{message}</p>} />
                         <CssTextField
                             sx={styles.textField}
                             fullWidth
@@ -90,7 +90,7 @@ function Footer() {
                             label="Phone"
                             {...register("phone", { required: "Phone is required.", pattern: /^[6-9]\d{9}$/ })} placeholder='Your phone number'
                         />
-                        <ErrorMessage errors={errors} name="phone" render={({ message }) => <p style={styles.errorText}>{message}</p>} />
+                        <ErrorMessage errors={errors} name="phone" render={({ message }) => <p style={{position: 'absolute', fontSize: '10px', marginLeft: '10px', marginTop: '5px', color: 'red'}}>{message}</p>} />
                         <CssTextField
                             sx={styles.textField}
                             fullWidth
@@ -98,7 +98,7 @@ function Footer() {
                             label="Service"
                             {...register("service", { required: "Please write your service.", maxLength: 256 })} placeholder='Write your service'
                         />
-                        <ErrorMessage errors={errors} name="service" render={({ message }) => <p style={styles.errorText}>{message}</p>} />
+                        <ErrorMessage errors={errors} name="service" render={({ message }) => <p style={{position: 'absolute', fontSize: '10px', marginLeft: '10px', marginTop: '5px', color: 'red'}}>{message}</p>} />
                         <Box sx={styles.actionBtn}>
                             <Stack direction="row" spacing={2}>
                                 <CssTextField sx={styles.textField} type="reset" />

@@ -18,8 +18,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { styles } from '../../styles/explore.styles';
 import { ColorModeContext } from '../../context/ColorContext';
 import { Auth } from 'aws-amplify';
-import { useNavigate } from 'react-router-dom';
-
+import { useRouter } from 'next/navigation';
 const pages = [
   {
     id: 'services',
@@ -41,7 +40,7 @@ const settings = ['Profile', 'Account', 'Logout'];
 
 export default function Navbar() {
   const theme = useTheme();
-  const navigate = useNavigate();
+  const router = useRouter()
   const [user, setUser] = useState('');
   const colorMode = React.useContext(ColorModeContext);
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -57,7 +56,7 @@ export default function Navbar() {
   const handleCloseNavMenu = (page:{id:string, name:string, key:number}) => {
     setAnchorElNav(null);
     if(page.id==="/blog"){
-      return navigate('/blog');
+      router.push('/blog')
     }
   };
 
